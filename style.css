@@ -99,3 +99,18 @@
          label {
              display: none;
          }
+         nav{
+            
+
+    position: relative;
+    float: left;
+    top: 224px;
+    left: -168px;
+    
+}
+         
+         a{
+            text-decoration: none;
+            color: white;
+        background-color: black; 
+        }

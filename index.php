@@ -1,5 +1,6 @@
 <?php
 session_start();
+echo "le nombre de produit est ".count($_SESSION['products']);
 ?>
 
 <!DOCTYPE html>
@@ -20,25 +21,29 @@ session_start();
         <p class="input">
             <label class="labelNom">Nom du produit :
                 </label>
-                <input   class="inputNom" type="text" name="name" placeholder="nom produit">
+                <input   class="inputNom" type="text" name="name" placeholder=" nom produit">
         </p>
         <p>
             <label class="labelPrice">
                 Prix du produit :
             </label>
-                <input  class="inputPrice"   type="number" step="any" name="price">
+                <input  class="inputPrice"  placeholder=" le prix"  type="number" step="any" name="price">
         </p >
         <p>
             <label class="labelQtt">
                 Quantité désirée :
             </label>
-                <input   class="inputQtt" type="number" name="qtt" value="1">
+                <input   palceholder=" la quantité" class="inputQtt" type="number" name="qtt" value="1">
         </p>
         <p>
             <input class='boutton 'type="submit" name="submit" value="Ajouter le produit">
 
         </p>
+        <nav>
+            <a href="recap.php">Voir mes produits</a>
+        </nav>
     </form>
+    
     
 
     </div>

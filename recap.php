@@ -45,6 +45,7 @@ session_start();
         "</tbody>",
         "</table>";
     } ?>
+    <a href="index.php">Ajouter un produit</a>
 
 </body>
 
