@@ -17,14 +17,42 @@ unset($_SESSION['message']);
     <title>Ajout produit</title>
 </head>
 
-<body>
+<body class="container-fluid p-5 m-5">
 
+<nav  class="navbar navbar-expand-lg bg-body-tertiary" >
                 
-    <div id="container" class="mb-3">
+                <?php
+                if(isset($_SESSION['products']))
+                {       
+                   echo "<button type='button' class='btn btn-primary position-relative'>
+                   <a class='navbar-brand' href='recap.php'text-white'>Voir mes produits</a>
+  <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>".count($_SESSION['products']).
+  "<span class='visually-hidden'>unread messages</span>
+  </span>
+</button>";
+                  
+                 }
+                 else
+                 
+                 {       
+                    echo "<button type='button' class='btn btn-primary position-relative'>
+  nombre de produits 
+   <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>".'0'.
+   "<span class='visually-hidden'>unread messages</span>
+   </span>
+ </button>";
+                   
+                  }
+                 ?>
+                 
+                 
+
+            </nav>  
+    <div class="mb-3">
    
         <h1>Ajouter un produit</h1>
         <form action="traitement.php" method="post">
-            <p class="input">
+            <p class="input" >
                 <label class="labelNom">Nom du produit :
                 </label>
                 <input class="inputNom" type="text" name="name" placeholder=" nom produit" class="form-control">
@@ -42,28 +70,10 @@ unset($_SESSION['message']);
                 <input placeholder=" la quantité" class="inputQtt" type="number" name="qtt" value=" 1" class="form-control">
             </p>
             <p>
-                <input class='boutton ' type="submit" name="submit" value="Ajouter le produit" >
+                <input  class="btn btn-primary" type="submit" name="submit" value="Ajouter le produit" >
 
             </p>
-            <nav>
-                <a href="recap.php">Voir mes produits</a>
-                <?php
-                if(isset($_SESSION['products']))
-                {       
-                    echo "<h3> le nombre de produit est " . 
-                    count($_SESSION['products']) . "</h3>";
-                 }
-                 else
-                 
-                {echo "<h3> aucun produit ajouter
-                         pour le moment </h3>";
-                 }
-            
-                 ?>
-                 
-                 
-
-            </nav>
+          
             
         </form>
 
