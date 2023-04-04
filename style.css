@@ -1,0 +1,101 @@
+         * {
+             margin: 0;
+             box-sizing: border-box;
+             padding: 0;
+         }
+         
+         body {
+             position: absolute;
+             background-color: #eee;
+         }
+         
+         #container {
+             position: relative;
+             left: 200px;
+             margin-top: 100px;
+             width: 500px;
+             height: 400px;
+             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+         }
+         
+         h1 {
+             text-align: center;
+             margin-top: 10px;
+             padding: 25px;
+         }
+         
+         .bouton {
+             width: 155px;
+             position: relative;
+             float: left;
+             top: 185px;
+             left: 15px;
+         }
+         
+         .inputNom {
+             width: 180px;
+             position: relative;
+             float: left;
+             top: 10px;
+             left: 160px;
+             height: 30px;
+             border-radius: 10px;
+             -webkit-border-radius: 10px;
+             -moz-border-radius: 10px;
+             -ms-border-radius: 10px;
+             -o-border-radius: 10px;
+         }
+         
+         .inputPrice {
+             width: 180px;
+             position: relative;
+             float: left;
+             top: 68px;
+             left: -20px;
+             height: 30px;
+             border-radius: 10px;
+             -webkit-border-radius: 10px;
+             -moz-border-radius: 10px;
+             -ms-border-radius: 10px;
+             -o-border-radius: 10px;
+         }
+         
+         .inputQtt {
+             width: 180px;
+             position: relative;
+             float: left;
+             top: 115px;
+             left: 160px;
+             height: 30px;
+             border-radius: 10px;
+             -webkit-border-radius: 10px;
+             -moz-border-radius: 10px;
+             -ms-border-radius: 10px;
+             -o-border-radius: 10px;
+         }
+         
+         .boutton {
+             width: 180px;
+             position: relative;
+             float: left;
+             top: 173px;
+             left: -21px;
+             height: 30px;
+             border-radius: 10px;
+             background-color: rgb(8, 8, 8);
+             color: white;
+             -webkit-border-radius: 10px;
+             -moz-border-radius: 10px;
+             -ms-border-radius: 10px;
+             -o-border-radius: 10px;
+         }
+         
+         .labelQtt {
+             position: relative;
+             float: left;
+             left: 10px;
+         }
+         
+         label {
+             display: none;
+         }
