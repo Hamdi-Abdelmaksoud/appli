@@ -12,6 +12,8 @@ if (isset($_POST['submit'])) {
             "total" => $price * $qtt
         ];
         $_SESSION['products'][] = $product;
+        $_SESSION['message'] = "le produit ". $name . " a bien été ajouté";
+
     }
 }
 header("Location:index.php");
