@@ -36,7 +36,7 @@ session_start();
             "<td>" . $product['qtt'] . "</td>",
             "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
             "</tr>";
-            $totalGeneral += $produit['Total'];
+            $totalGeneral += $product['total'];
         }
         echo "<tr>",
         "<td colspan=4>Total général : </td>",
