@@ -32,13 +32,14 @@ session_start();
         "<tbody>";
         $totalGeneral = 0;
         foreach ($_SESSION['products'] as $index => $product) {
+        
             echo "<tr>",
             "<td> <a href='traitement.php?action=down-qtt&index=$index'><i class='fa-regular fa-square-minus'></i></button></a></td>",
-            "<td 'row'>" . $index+1 . "</td>",
+            "<td 'row'>" . $index . "</td>",
             "<td>" . $product['name'] . "</td>",
             "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
             "<td>" . $product['qtt'] . "</td>",
-            "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
+            "<td>" . number_format($product['total'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
             "<td> <a href='traitement.php?action=up-qtt&index=$index'><button><i class='fa-solid fa-plus'></i></button></a></td>",
             "</tr>";
             $totalGeneral += $product['total'];
@@ -50,9 +51,7 @@ session_start();
         "</tbody>",
         "</table>";
     } ?>
-    <a href="index.php">Ajouter un produit</a>
-<!--    
-    <a href="traitement.php?action=clear"><button><i class="fa-solid fa-trash"></i></button></a> -->
+    <a href="index.php">Ajouter un produit</a> 
 
 </body>
 
