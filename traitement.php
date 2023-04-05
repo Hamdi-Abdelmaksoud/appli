@@ -42,16 +42,13 @@ if (isset($_GET['action'])) {
                 break;
               //*__________________________ diminuer la quantité d'un produit____________________________________
               case "down-qtt":
-                $_SESSION['products'][$_GET['index']]['qtt']--;
-                $_SESSION['products'][$_GET['index']]['total']-=$_SESSION['products'][$_GET['index']]['price'];
+                if($_SESSION['products'][$_GET['index']]['qtt']>0)
+                {
+                   $_SESSION['products'][$_GET['index']]['qtt']--;
+                   $_SESSION['products'][$_GET['index']]['total']-=$_SESSION['products'][$_GET['index']]['price'];
+                }
                 break;
-              //*__________________________afficher les détails d'un produit____________________________________
-              case "down-qtt":
-                $_SESSION['products'][$_GET['index']]['qtt']--;
-                $_SESSION['products'][$_GET['index']]['total']-=$_SESSION['products'][$_GET['index']]['price'];
-                break;
-    
-            }
+    }
             header("location:index.php");
 
 }
