@@ -39,17 +39,23 @@ if (isset($_GET['action'])) {
                 case "up-qtt":
                 $_SESSION['products'][$_GET['index']]['qtt']++;
                 $_SESSION['products'][$_GET['index']]['total']+=$_SESSION['products'][$_GET['index']]['price'];
+                header("Location:recap.php");
                 break;
               //*__________________________ diminuer la quantité d'un produit____________________________________
               case "down-qtt":
-                if($_SESSION['products'][$_GET['index']]['qtt']>0)
+                if($_SESSION['products'][$_GET['index']]['qtt']>1)
                 {
                    $_SESSION['products'][$_GET['index']]['qtt']--;
                    $_SESSION['products'][$_GET['index']]['total']-=$_SESSION['products'][$_GET['index']]['price'];
+                   header("Location:recap.php");
                 }
+                else
+                {
+                    unset($_SESSION['products'][$_GET['index']]);
+                }
+                header("Location:recap.php");
                 break;
-    }
-            header("location:index.php");
+    } 
 
 }
 

@@ -23,8 +23,8 @@ session_start();
         "<th>qtt-</th>",
         "<th 'scope=col'>#</th>",
         "<th 'scope=col'>Nom</th>",
-        "<th 'scope=col'>Quantité</th>",
         "<th 'scope=col'>Prix</th>",
+        "<th 'scope=col'>Quantité</th>",
         "<th 'scope=col'>Total</th>",
         "<th>qtt+</th>",
         "</tr>",
@@ -33,13 +33,13 @@ session_start();
         $totalGeneral = 0;
         foreach ($_SESSION['products'] as $index => $product) {
             echo "<tr>",
-            "<td> <a href='traitement.php?action=down-qtt'><button><i class='fa-solid fa-square-minus'></i></button></a></td>",
+            "<td> <a href='traitement.php?action=down-qtt&index=$index'><i class='fa-regular fa-square-minus'></i></button></a></td>",
             "<td 'row'>" . $index+1 . "</td>",
             "<td>" . $product['name'] . "</td>",
             "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
             "<td>" . $product['qtt'] . "</td>",
             "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
-            "<td> <a href='traitement.php?action=up-qtt'><button><i class='fa-solid fa-plus'></i></button></a></td>",
+            "<td> <a href='traitement.php?action=up-qtt&index=$index'><button><i class='fa-solid fa-plus'></i></button></a></td>",
             "</tr>";
             $totalGeneral += $product['total'];
         }
