@@ -51,7 +51,7 @@ unset($_SESSION['message']);
     <div class="mb-3">
    
         <h1>Ajouter un produit</h1>
-        <form action="traitement.php" method="post">
+        <form action="traitement.php?action=add"  method="post" enctype="multipart/form-data">
             <p class="input" >
                 <label class="labelNom">Nom du produit :
                 </label>
