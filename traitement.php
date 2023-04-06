@@ -20,6 +20,8 @@ if (isset($_GET['action']))
                     ];
                     $_SESSION['products'][] = $product;
                     $_SESSION['message'] = "le produit " . $name . " a été bien ajouté";
+                    $_SESSION['totalQtt']+=$qtt;
+                    
                 }
             }
             header("Location:index.php");
@@ -34,12 +36,14 @@ if (isset($_GET['action']))
             //*__________________________vider le panier____________________________________
         case "clear":
             unset($_SESSION['products']); // On supprime tous les  produits
+            $_SESSION['totalQtt']=0;
             header("Location:index.php");
             break;
 
             //*__________________________augmenter la quantité d'un produit____________________________________
         case "up-qtt":
             $_SESSION['products'][$_GET['index']]['qtt']++;
+            $_SESSION['totalQtt']++;
             $_SESSION['products'][$_GET['index']]['total'] += $_SESSION['products'][$_GET['index']]['price'];
             header("Location:recap.php");
             break;
@@ -48,10 +52,11 @@ if (isset($_GET['action']))
             if ($_SESSION['products'][$_GET['index']]['qtt'] > 1) {
                 $_SESSION['products'][$_GET['index']]['qtt']--;
                 $_SESSION['products'][$_GET['index']]['total'] -= $_SESSION['products'][$_GET['index']]['price'];
-                header("Location:recap.php");
+             
             } else {
                 unset($_SESSION['products'][$_GET['index']]);
             }
+            $_SESSION['totalQtt']--;
             header("Location:recap.php");
             break;
     }

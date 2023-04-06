@@ -72,14 +72,15 @@ if ($message != null) {//si le message différent de null donc le produit est bi
             </form>
             <?php
 
-            if (isset($_SESSION['products'])) {//méthode pour avoir le nombre de prdts ajoutés et l'afficher
+            if (isset($_SESSION['totalQtt'])) {//méthode pour avoir le nombre de prdts ajoutés et l'afficher
                 echo "<button type='button' class='btn btn-primary position-relative'>
                     <a class='navbar-brand' href='recap.php'text-white'><i class='fa-solid fa-cart-shopping' style='color: #eceff3;'></i> produits</a>
-   <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>" . count($_SESSION['products']) .
+   <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>" . $_SESSION['totalQtt'] .
                     "<span class='visually-hidden'>unread messages</span>
    </span>
    </button>";
-            } else {//si la session est vide donc on zéro prdts ajoutés 
+            } else {//si la session est vide donc on zéro prdts ajoutés
+                $_SESSION['totalQtt']=0; 
                 echo "<button type='button' class='btn btn-primary position-relative'>
                 <a class='navbar-brand' href='recap.php'text-white'><i class='fa-solid fa-cart-shopping' style='color: #eceff3;'></i> produits</a>
 <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>0<span class='visually-hidden'>unread messages</span>
