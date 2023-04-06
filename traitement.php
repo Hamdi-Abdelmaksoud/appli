@@ -19,7 +19,7 @@ if (isset($_GET['action']))
                         "total" => $price * $qtt
                     ];
                     $_SESSION['products'][] = $product;
-                    $_SESSION['message'] = "le produit " . $name . " a bien été ajouté";
+                    $_SESSION['message'] = "le produit " . $name . " a été bien ajouté";
                 }
             }
             header("Location:index.php");
@@ -33,7 +33,7 @@ if (isset($_GET['action']))
 
             //*__________________________vider le panier____________________________________
         case "clear":
-            unset($_SESSION['products']); // On supprime un produit
+            unset($_SESSION['products']); // On supprime tous les  produits
             header("Location:index.php");
             break;
 
