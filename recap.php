@@ -24,7 +24,7 @@ session_start();
         echo "<table class='table table-bordered table-dark ' >",
         "<thead>",
         "<tr>",
-         "<th scope='col'><a href='index.php'><button class='btn btn-primary'>Ajouter des produits</button></a></th>",
+        //  "<th scope='col'><a href='index.php'><button class='btn btn-primary'>Ajouter des produits</button></a></th>",
         "<th scope='col'>Nom</th>",
         "<th scope='col'>Prix</th>",
         "<th scope='col'>Quantité</th>",
@@ -40,8 +40,8 @@ session_start();
            
             /*aprés afficher les prdts on donne le client la possibilité de supprimer le prdt qu'il veut,
              on envoyons l'index à la méthode delete(traitement.php) pour connaitre le prdt visé  */
-            "<td >" ."<a href='traitement.php?action=delete&index=$index'><i class='fa-solid fa-circle-xmark'></i></a>" . "</td>",
-            "<td>" . $product['name'] . "</td>",
+            // "<td >" ."<a href='traitement.php?action=delete&index=$index'><i class='fa-solid fa-circle-xmark'></i></a>" . "</td>",
+            "<td>" ."<a href='traitement.php?action=delete&index=$index'><i class='fa-solid fa-circle-xmark'></i></a> ". $product['name'] . "</td>",
             "<td>" . number_format($product['price'], 2, ",", "&nbsp;") . "&nbsp;€</td>",
             //on donne la possibilité d'ajouter ou diminuer qqt d'un prdt on envoyons l'index à down-qtt ou up-qtt (traitement.php)
             "<td>" ."<a href='traitement.php?action=down-qtt&index=$index'><i class='fa-solid fa-circle-minus'></i></a>  ". $product['qtt'] ."   <a href='traitement.php?action=up-qtt&index=$index'><i class='fa-solid fa-circle-plus'></i></a> " ."</td>",
@@ -54,7 +54,7 @@ session_start();
         echo "<tr scope='row'>",
         //on donne la possibilité de supprimer tous les prdts 
         "<td><a href='traitement.php?action=clear'><i class='fa-solid fa-trash'></i>vider <a></td>",
-        "<td colspan=3>Total général : </td>",
+        "<td colspan=2>Total général : </td>",
         "<td><strong>" . number_format($totalGeneral, 2, ".", "&nbsp") . "&nbsp;€</strong></td>",
         
         "</tr>",

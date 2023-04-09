@@ -10,8 +10,8 @@ if (isset($_GET['action']))
                 $name = filter_input(INPUT_POST, "name", FILTER_SANITIZE_FULL_SPECIAL_CHARS);
                 $price = filter_input(INPUT_POST, "price", FILTER_VALIDATE_FLOAT, FILTER_FLAG_ALLOW_FRACTION);
                 $qtt = filter_input(INPUT_POST, 'qtt', FILTER_VALIDATE_INT);
-
-                if ($name && $price && $qtt) {
+                if ($name && $price && $qtt) 
+                {
                     $product = [
                         "name" => $name,
                         "price" => $price,
@@ -26,20 +26,17 @@ if (isset($_GET['action']))
             }
             header("Location:index.php");
             break;
-
             //*__________________________supprimer produit____________________________________
         case "delete":
             unset($_SESSION['products'][$_GET['index']]); // On supprime un produit
             header("Location:recap.php");
             break;
-
             //*__________________________vider le panier____________________________________
         case "clear":
             unset($_SESSION['products']); // On supprime tous les  produits
-            $_SESSION['totalQtt']=0;
+            unset($_SESSION['totalQtt']);
             header("Location:index.php");
             break;
-
             //*__________________________augmenter la quantité d'un produit____________________________________
         case "up-qtt":
             $_SESSION['products'][$_GET['index']]['qtt']++;
@@ -49,11 +46,12 @@ if (isset($_GET['action']))
             break;
             //*__________________________ diminuer la quantité d'un produit____________________________________
         case "down-qtt":
-            if ($_SESSION['products'][$_GET['index']]['qtt'] > 1) {
+            if ($_SESSION['products'][$_GET['index']]['qtt'] > 1) 
+            {
                 $_SESSION['products'][$_GET['index']]['qtt']--;
-                $_SESSION['products'][$_GET['index']]['total'] -= $_SESSION['products'][$_GET['index']]['price'];
-             
-            } else {
+                $_SESSION['products'][$_GET['index']]['total'] -= $_SESSION['products'][$_GET['index']]['price']; 
+            } else 
+            {
                 unset($_SESSION['products'][$_GET['index']]);
             }
             $_SESSION['totalQtt']--;
