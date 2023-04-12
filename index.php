@@ -1,9 +1,9 @@
 <?php
 session_start();
-isset($_SESSION['products']) ? $preSize = count($_SESSION['products']) : $preSize = 0;//on vérifie si on a ajouté un pruduit
+isset($_SESSION['products']) ? $preSize = count($_SESSION['products']) : $preSize = 0; //on vérifie si on a ajouté un pruduit
 $message =  isset($_SESSION['message']) ? $_SESSION['message'] : null;
-/*$_SESSION['message'] =donné à partir de la méthode add "traitement.php" lorsque un prod ajouté*/ 
-if ($message != null) {//si le message différent de null donc le produit est bien ajouté on affiche un message de success 
+/*$_SESSION['message'] =donné à partir de la méthode add "traitement.php" lorsque un prod ajouté*/
+if ($message != null) { //si le message différent de null donc le produit est bien ajouté on affiche un message de success 
 ?>
     <script>
         window.onload = function message() {
@@ -12,16 +12,13 @@ if ($message != null) {//si le message différent de null donc le produit est bi
             let parent = document.getElementById('message');
             parent.appendChild(message);
             setTimeout(() => {
-                    message.remove();
-                }, 2000
-
-            )
+                message.remove();
+            }, 2000)
         }
     </script>
 <?php
-    unset($_SESSION['message']);//vider le message dans la session 
+    unset($_SESSION['message']); //vider le message dans la session 
 }; ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,15 +33,9 @@ if ($message != null) {//si le message différent de null donc le produit est bi
 </head>
 
 <body class="container-fluid p-5 m-5">
+
     <div id=container>
-
-
-
-
-
-
         <div class="mb-3">
-
             <h1>Ajouter un produit</h1>
             <form action="traitement.php?action=add" method="post" enctype="multipart/form-data">
                 <p class="input">
@@ -66,21 +57,18 @@ if ($message != null) {//si le message différent de null donc le produit est bi
                 </p>
                 <p>
                     <input class="btn btn-primary" type="submit" name="submit" value="Ajouter le produit">
-
                 </p>
-
             </form>
             <?php
-
-            if (isset($_SESSION['totalQtt'])) {//méthode pour avoir le nombre de prdts ajoutés et l'afficher
+            if (isset($_SESSION['totalQtt'])) { //méthode pour avoir le nombre de prdts ajoutés et l'afficher
                 echo "<button type='button' class='btn btn-primary position-relative'>
                     <a class='navbar-brand' href='recap.php'text-white'><i class='fa-solid fa-cart-shopping' style='color: #eceff3;'></i> produits</a>
    <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>" . $_SESSION['totalQtt'] .
                     "<span class='visually-hidden'>unread messages</span>
    </span>
    </button>";
-            } else {//si la session est vide donc on zéro prdts ajoutés
-                $_SESSION['totalQtt']=0; 
+            } else { //si la session est vide donc on zéro prdts ajoutés
+                $_SESSION['totalQtt'] = 0;
                 echo "<button type='button' class='btn btn-primary position-relative'>
                 <a class='navbar-brand' href='recap.php'text-white'><i class='fa-solid fa-cart-shopping' style='color: #eceff3;'></i> produits</a>
 <span class='position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger'>0<span class='visually-hidden'>unread messages</span>
@@ -88,8 +76,6 @@ if ($message != null) {//si le message différent de null donc le produit est bi
 </button>";
             }
             ?>
-
-
             <p id="message"></p><!---ici on ajoute les message produit ajouté avec succes-->
         </div>
     </div>

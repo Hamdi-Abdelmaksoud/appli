@@ -21,7 +21,7 @@ session_start();
          echo "<p>Vous n'avez pas encore ajouté un produit</p> <a href='index.php' style='text-decoration:none'>ajouter un produit <i class='fa-solid fa-rotate-left' style='color: #1a57c1;'></i></a>";
     } else
     {//on affiche les prdts
-        echo "<table class='table table-bordered table-dark ' >",
+        echo "<div style='width:600px'><table class='table table-bordered table-dark m-5 text-center' >",
         "<thead>",
         "<tr>",
         //  "<th scope='col'><a href='index.php'><button class='btn btn-primary'>Ajouter des produits</button></a></th>",
@@ -54,12 +54,13 @@ session_start();
         echo "<tr scope='row'>",
         //on donne la possibilité de supprimer tous les prdts 
         "<td><a href='traitement.php?action=clear'><i class='fa-solid fa-trash'></i>vider <a></td>",
-        "<td colspan=2>Total général : </td>",
+        "<td colspan=2><a href='index.php'><button class='btn btn-primary'>Ajouter des produits</button></a> </td>",
         "<td><strong>" . number_format($totalGeneral, 2, ".", "&nbsp") . "&nbsp;€</strong></td>",
         
         "</tr>",
         "</tbody>",
-        "</table>";
+        "</table></div>";
+
     } 
     ?>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script> 
